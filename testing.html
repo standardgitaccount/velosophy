@@ -1,0 +1,218 @@
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="The Password Entropy Estimator is a local calculator that estimates your password's entropy using a straightforward formula. It offers security recommendations and runs directly in the browser without transmitting any data.">
+    <meta name="keywords" content="cyberalex, cyberalexuk, cyber alex">
+    <meta name="author" content="Alex">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <script type="module" src="./templatemanager.js"></script>
+    
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <link href="hacker.css" rel="stylesheet">
+    <link rel="icon" href="logo.svg" type="image/svg+xml">
+   
+    <title>CyberAlex</title>
+
+    <style>
+    .footer {
+      background-color: black;
+      padding: 20px 0;
+    }
+        #dropZone {
+      border: 2px dashed #01CD00;
+      padding: 30px;
+      text-align: center;
+      color: #01CD00;
+      background: #3D3D3C;
+      transition: all 0.2s ease-in-out;
+    }
+    #dropZone.dragover {
+      background-color: #01CD00;
+      border-color: #019100;
+      color: #019100;
+    }
+    </style>
+</head>
+
+<body>
+  
+  <the-header></the-header>
+
+  <main class="container" id="main">
+    <div class="row">
+        <div class="col-md-6">
+            <ul class="breadcrumb">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li class="password.html">Password Tester</li>
+            </ul>
+        </div>
+            <div class="col-md-3"><p>Published:<br>4 April 2025</p></div>
+            <div class="col-md-3"><p>Author:<br> <a href="about.html">> Alex</a></p></div>
+    </div>
+
+      <div class="row">
+          <div class="col-md-7">
+              <h1>Password Tester</h1>
+            <p>The Password Entropy Estimator is a local calculator that estimates your password's entropy using a straightforward formula. It offers security recommendations and runs directly in the browser without transmitting any data.</p>
+          </div>
+      </div>
+
+    <div class="row">
+        <div class="col-md-5">
+                <div class="panel panel-success">
+                        <div class="panel-heading"><h2 class="panel-title"><b>Password Entropy Estimator Tool</b></h2></div>  
+                        <div class="panel-body">This calculator uses a simple formula to estimate the entropy of your password.<br>The minimum recommended entropy is 100 bits.
+                            <input type="password" id="passwordInput" class="form-control" placeholder="Enter your password">
+                            <button id="calculateEntropy" class="btn btn-primary mt-3">Calculate Entropy</button>
+                            <br>
+                            <p><small>This will run locally on your machine and no data is saved or transmitted. An alternative is the <a href="https://bitwarden.com/password-strength/">> Password Strength Testing Tool</a> by Bitwarden.</small></p>
+                        </div>
+                      <div class="panel-footer" id="entropyResult" class="mt-3"></div>
+              </div>
+        </div>
+    </div>
+        
+        <div class="row">
+            <div class="col-md-7">
+            
+            <h2>Context</h2>
+        <p>Passwords are one of many forms of authentication and is one of the simplest ways to secure accounts and information. They work in different ways with different algorithms but they all have one common vulnerability: <i>Time</i>.</p>
+        <p>Given enough time, all passwords could eventually be cracked. This is due to the way the cryptographic algorithms work, they decrease the chances of being cracked as entropy increases.</p>
+        <p>Password strength can be measured in terms of entropy, which reflects the randomness of a password. A higher entropy means more possible combinations, increasing the time required to crack it.
+        To have secure passwords entropy must be created and the more entropy the longer it will take to crack.</p>
+              <div class="container my-4">
+                <div class="table-responsive">
+                    <table class="table table-bordered table-striped">
+                        <thead class="table-dark">
+                            <tr>
+                                <th scope="col">Description</th>
+                                <th scope="col">Password</th>
+                                <th scope="col">Bits of Entropy</th>
+                                <th scope="col">Est. Time to Crack</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Most "<a href="https://en.wikipedia.org/wiki/Wikipedia:10,000_most_common_passwords">> Common Password</a>"</td>
+                                <td>"123456"</td>
+                                <td>19.93</td>
+                                <td>1 Second</td>
+                            </tr>
+                            <tr>
+                                <td>A typical randomly generated 8 character password</td>
+                                <td>"Nc.x90-X"</td>
+                                <td>52.44</td>
+                                <td>3 Hours</td>
+                            </tr>
+                            <tr>
+                                <td>Following the NCSC recommended "<a href="https://www.ncsc.gov.uk/collection/top-tips-for-staying-secure-online/three-random-words">> Three Random Words</a>"</td>
+                                <td>"poachrubycoma"</td>
+                                <td>61.11</td>
+                                <td>14 Days</td>
+                            </tr>
+                            <tr>
+                                <td>Following Forbes "<a href="https://www.forbes.com/advisor/business/how-create-strong-password/">> How To Create A Strong Password</a>"</td>
+                                <td>"G7&d#4kzL1!"</td>
+                                <td>72.10</td>
+                                <td>4 Months</td>
+                            </tr>
+                            <tr>
+                                <td>Randomly generated 10 character password</td>
+                                <td>"o95_/upw-%JJ"</td>
+                                <td>78.66</td>
+                                <td>3 Years</td>
+                            </tr>
+                            <tr>
+                                <td>Password with over 100 bits of entropy</td>
+                                <td>"MfN&q~WJqWzt4-\v"</td>
+                                <td>104.87</td>
+                                <td>Centuries</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+
+                   <h2>Password Recommendations</h2>
+        <p>Your circumstances and the security required will determine the required password entropy.</p>
+        <p>At a minimum, we would recommend using a randomly generated passcode that has a minimum of 100 bits of entropy with upper and lowercase letters, numbers, and special characters. 
+            Doing this in a password manager like <a href="https://keepassxc.org/">> KeePassXC</a> is easy. Keep in mind if you want to type this password on a phone then using it may not be possible to use extended ASCII characters.</p>
+        <p>To learn more about passwords, read the publication by the US governments National Institute of Standards and Technology <a href="https://pages.nist.gov/800-63-4/sp800-63b.html">> here</a>. 
+            This was published in 2024 and appendix a pertains to password strength.</p>
+
+            
+            <h2>Questions?</h2>
+            <a href="contact.html">> Contact</a>
+        </div>
+    </div>
+
+      
+  </main>
+<br><br><br>
+
+  <the-footer></the-footer>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <script>
+        // Function to calculate entropy
+function calculateEntropy() {
+    const password = document.getElementById('passwordInput').value.trim();
+    const resultDiv = document.getElementById('entropyResult');
+
+    if (password === "") {
+        resultDiv.innerHTML = '<div class="alert alert-danger">Please enter a password.</div>';
+        return;
+    }
+
+    // Calculate the character set size
+    let charsetSize = 0;
+    if (/[a-z]/.test(password)) charsetSize += 26; // Lowercase
+    if (/[A-Z]/.test(password)) charsetSize += 26; // Uppercase
+    if (/[0-9]/.test(password)) charsetSize += 10; // Numbers
+    if (/[\W_]/.test(password)) charsetSize += 32; // Special characters
+    if (/[\x80-\xFF]/.test(password)) charsetSize += 128; // Extended ASCII
+
+    // Calculate entropy
+    const entropy = Math.log2(charsetSize) * password.length;
+
+    // Display result
+    resultDiv.innerHTML = `
+        <div class="alert alert-info">
+            <strong>Entropy:</strong> ${entropy.toFixed(2)} bits<br>
+            <strong>Analysis:</strong> ${analyzeEntropy(entropy)}
+        </div>`;
+}
+
+// Provide feedback based on entropy
+function analyzeEntropy(entropy) {
+    if (entropy < 99.99) {
+        return "Not Recomended";
+    } else {
+        return "Recomended";
+    }
+}
+
+// Event listener for button click
+document.getElementById('calculateEntropy').addEventListener('click', calculateEntropy);
+
+// Event listener for Enter key press
+document.getElementById('passwordInput').addEventListener('keydown', function(event) {
+    if (event.key === 'Enter') {
+        calculateEntropy();
+    }
+});
+
+</script>
+</body>
+</html>
